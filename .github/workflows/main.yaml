@@ -1,0 +1,27 @@
+name: Release and deploy Go-Fortune
+
+on:
+  push:
+    branches:
+    - 'v[0-9]+.[0-9]+'
+
+jobs: 
+  release-and-deploy:
+    # OS that this workflow will be running on, must have space between key runs-on and value ubuntu
+    runs-on: ubuntu-latest
+
+    # list of steps to perform task
+    steps:
+    - name: echo the branch name
+      run: echo "current branch - ${{ github.ref"
+      run: echo "The current time and date in GitHub is $(date)"
+    - name: Install Railway
+      run: npm i -g @railway/cli
+    - name: Deploy
+      run: railway up
+      env:
+        RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}   
+  
+
+
+
