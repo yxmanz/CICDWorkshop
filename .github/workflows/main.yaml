@@ -28,5 +28,71 @@ jobs:
       env:
         RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
 
+    - name: Send custom notification message
+      id: slack
+      uses: slackapi/slack-github-action@v1.23.0
+      with:
+        payload: |
+          {
+            "text": "GitHub Action build result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}",
+            "blocks": [
+              {
+                "type": "header",
+                "text": {
+                  "type": "plain_text",
+                  "text": "DipSA55 CI/CD Assignment Submission",
+                  "emoji": true
+                }
+              },
+              {
+                "type": "section",
+                "fields": [
+                  {
+                    "type": "mrkdwn",
+                    "text": "*Name:*\nYeo Yuan Qi Amanda"
+                  },
+                  {
+                    "type": "mrkdwn",
+                    "text": "*Matriculation:*\nA026589R"
+                  }
+                ]
+              },
+              {
+                "type": "section",
+                "fields": [
+                  {
+                    "type": "mrkdwn",
+                    "text": "*Email:*\n<mailto:e1045764@u.nus.edu|e1045764@u.nus.edu>"
+                  },
+                  {
+                    "type": "mrkdwn",
+                    "text": "*Repository:*\n<https://github.com/yxmanz/CICDWorkshop.git|git://github.com/yxmanz/CICDWorkshop.git>"
+                  }
+                ]
+              },
+              {
+                "type": "section",
+                "fields": [
+                  {
+                    "type": "mrkdwn",
+                    "text": "*Deployment:*\n<https://cicdworkshop-production.up.railway.app/|https://cicdworkshop-production.up.railway.app>"
+                  }
+                ]
+              },
+              {
+                "type": "section",
+                "fields": [
+                  {
+                    "type": "mrkdwn",
+                    "text": "\n<https://cicdworkshop-production.up.railway.app/|Open Application>"
+                  }
+                ]
+              }
+            ]
+          }
+      env:
+        SLACKTEST_WEBHOOK_URL: ${{ secrets.SLACKTEST_WEBHOOK_URL }}
+        SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+
 
 
