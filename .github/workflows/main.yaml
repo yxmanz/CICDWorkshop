@@ -98,8 +98,6 @@ jobs:
     - name: Release
       uses: ncipollo/release-action@v1
       with:
-        ref: 
-        artifacts: "release.tar.gz,foo/*.txt"
-        bodyFile: "body.md"
+        name: ${{ github.ref_name }}
         token: ${{ secrets.GH_TOKEN }}
 
