@@ -35,21 +35,17 @@ jobs:
         payload: |
           {
             "text": "slack notification",
-            "blocks": 
-            [
+            "blocks": [
               {
                 "type": "header",
-                "text": 
-                {
+                "text": {
                   "type": "plain_text",
-                  "text": "DipSA55 CI/CD Assignment Submission",
-                  "emoji": true
+                  "text": "DipSA55 CI/CD Assignment Submission "
                 }
               },
               {
                 "type": "section",
-                "fields": 
-                [
+                "fields": [
                   {
                     "type": "mrkdwn",
                     "text": "*Name:*\nYeo Yuan Qi Amanda"
@@ -62,8 +58,7 @@ jobs:
               },
               {
                 "type": "section",
-                "fields": 
-                [
+                "fields": [
                   {
                     "type": "mrkdwn",
                     "text": "*Email:*\n<mailto:e1045764@u.nus.edu|e1045764@u.nus.edu>"
@@ -76,8 +71,7 @@ jobs:
               },
               {
                 "type": "section",
-                "fields": 
-                [
+                "fields": [
                   {
                     "type": "mrkdwn",
                     "text": "*Deployment:*\n<https://cicdworkshop-production.up.railway.app/|https://cicdworkshop-production.up.railway.app>"
@@ -86,8 +80,7 @@ jobs:
               },
               {
                 "type": "section",
-                "fields": 
-                [
+                "fields": [
                   {
                     "type": "mrkdwn",
                     "text": "\n<https://cicdworkshop-production.up.railway.app/|Open Application>"
@@ -96,6 +89,7 @@ jobs:
               }
             ]
           }
+        `
       env:
         SLACKTEST_WEBHOOK_URL: ${{ secrets.SLACKTEST_WEBHOOK_URL }}
         SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
