@@ -89,7 +89,7 @@ jobs:
               }
             ]
           }
-        `
+        
       env:
         SLACKTEST_WEBHOOK_URL: ${{ secrets.SLACKTEST_WEBHOOK_URL }}
         SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
