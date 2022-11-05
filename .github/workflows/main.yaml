@@ -79,7 +79,7 @@ jobs:
                 "fields": [
                   {
                     "type": "mrkdwn",
-                    "text": "*Deployment:*\n<https://cicdworkshop-production.up.railway.app/|https://cicdworkshop-production.up.railway.app>"
+                    "text": "*Deployment:*\n<https://${{ github.event.repository.name }}-production.up.railway.app/|https://cicdworkshop-production.up.railway.app>"
                   }
                 ]
               },
