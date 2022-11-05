@@ -103,6 +103,6 @@ jobs:
       uses: ncipollo/release-action@v1
       with:
         name: ${{ github.ref_name }}
-        tag: ${{ env.NOW }}
+        tag: v.${{ env.NOW }}
         token: ${{ secrets.GH_TOKEN }}
 
