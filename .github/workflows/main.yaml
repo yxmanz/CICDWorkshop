@@ -31,18 +31,6 @@ jobs:
       env:
         RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
 
-    - name: Get deployment URL
-      id: deployment
-      uses: dorshinar/get-deployment-url@master
-      timeout-minutes: 5
-      with:
-        token: ${{ secrets.GH_TOKEN }}
-
-    - name: Run end-to-end tests
-      run: npm run test:e2e
-      env:
-        deployment: ${{ steps.deployment.outputs.deployment }}
-
     - name: Send custom notification message
       id: slack
       uses: slackapi/slack-github-action@v1.23.0
@@ -89,7 +77,7 @@ jobs:
                 "fields": [
                   {
                     "type": "mrkdwn",
-                    "text": "*Deployment:*\n<${{ steps.deployment.outputs.deployment }}|https://cicdworkshop-production.up.railway.app>"
+                    "text": "*Deployment:*\n<https://cicdworkshop-production.up.railway.app/|https://cicdworkshop-production.up.railway.app>"
                   }
                 ]
               },
