@@ -68,7 +68,7 @@ jobs:
                   },
                   {
                     "type": "mrkdwn",
-                    "text": "*Repository:*\n<https://github.com/yxmanz/CICDWorkshop.git|git://github.com/yxmanz/CICDWorkshop.git>"
+                    "text": "*Repository:*\n<${{ github.repositoryUrl }}|git://github.com/yxmanz/CICDWorkshop.git>"
                   }
                 ]
               },
