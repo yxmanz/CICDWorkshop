@@ -10,6 +10,8 @@ jobs:
   release-and-deploy:
     # OS that this workflow will be running on, must have space between key runs-on and value ubuntu
     runs-on: ubuntu-latest
+    if: ${{ !contains(github.event.head_commit.message, '#NORUN') }}
+    
     permissions:
       contents: write
 
