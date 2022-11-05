@@ -55,7 +55,7 @@ jobs:
                   },
                   {
                     "type": "mrkdwn",
-                    "text": "*Matriculation:*\nA026589R"
+                    "text": "*Matriculation:*\nA0265089R"
                   }
                 ]
               },
@@ -68,7 +68,7 @@ jobs:
                   },
                   {
                     "type": "mrkdwn",
-                    "text": "*Repository:*\n<${{ github.server_url }}|git://github.com/yxmanz/CICDWorkshop.git>"
+                    "text": "*Repository:*\n<https://github.com/${{github.repository}}|${{ github.server_url }}>"
                   }
                 ]
               },
@@ -96,10 +96,13 @@ jobs:
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
 
+    - name: set env
+      run: echo "NOW=$(date +'%Y.%m.%d')" >> $GITHUB_ENV
+
     - name: Release
       uses: ncipollo/release-action@v1
       with:
         name: ${{ github.ref_name }}
-        tag: $(date)
+        tag: ${{ env.NOW }}
         token: ${{ secrets.GH_TOKEN }}
 
